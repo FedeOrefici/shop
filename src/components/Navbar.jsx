@@ -16,11 +16,12 @@ const ContLink = styled.ul`
 
 
 const Navbar = () => {
+  
   return (
     <Container>
       <ContLink>
         <NavLink to='/products'>products</NavLink>
-        <NavLink to='/your coins'>your coins</NavLink>
+        <NavLink to='/yourCoins'>your coins</NavLink>
         <NavLink to='/trade'>trade</NavLink>
       </ContLink>
     </Container>
