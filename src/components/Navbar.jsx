@@ -1,8 +1,16 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const Container = styled.div`
-  background-color: blue;
+  width: 100%;
+  border: 1px solid black;
+`
+const ContLink = styled.ul`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 `
 
 
@@ -10,11 +18,11 @@ const Container = styled.div`
 const Navbar = () => {
   return (
     <Container>
-      <ul>
-        <li>products</li>
-        <li>your coins</li>
-        <li>payments</li>
-      </ul>
+      <ContLink>
+        <NavLink to='/products'>products</NavLink>
+        <NavLink to='/your coins'>your coins</NavLink>
+        <NavLink to='/trade'>trade</NavLink>
+      </ContLink>
     </Container>
   )
 }
