@@ -4,12 +4,27 @@ import { ContextData } from '../context/InfoContext'
 const Home = () => {
 
   const {data} = useContext(ContextData)
-  console.log(data);
+
+  const info = (data?.Data?.map(data => data.CoinInfo));
+  const values = (data?.Data?.map(data => data?.DISPLAY?.USD))
 
   return (
-    <div>
-      <button onClick={data}>click</button>
-    </div>
+    <>
+      {(info) ? info?.map(coin => (
+        <div key={coin.id}>
+          <p>{coin?.FullName}</p>
+          <img src={coin?.ImageUrl} />
+        </div>
+      )) : (
+        <div>charging...</div>
+      )}
+      {values?.map((val, idx) => (
+            <div key={idx}>
+              <p>price: {val.PRICE}</p>
+              <p>market cap: {val.MKTCAP}</p>
+            </div>
+          ))}
+    </>
   )
 }
 
