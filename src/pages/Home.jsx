@@ -8,12 +8,23 @@ const Container = styled.div`
   height: 200px;
   padding: 10px;
   margin: auto;
-  background: linear-gradient(#52B69A, #184E77);
+  background: linear-gradient(to right, #184E77, #52B69A);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+`
+
+const ContainerCards = styled.div`
+  display: block;
+  column-count: 2;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  width: 70%;
+  flex-direction: column;
+  margin: auto;
 `
 
 
@@ -24,7 +35,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <ContainerCards>
       {coinData ? (
         coinData.map(coin => (
           <Container>
@@ -35,7 +46,7 @@ const Home = () => {
           </Container>
         ))
       ) : (<p>loading....</p>)}
-    </>
+    </ContainerCards>
   )
 }
 
