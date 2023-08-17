@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const Container = styled.div`
   width: 100%;
   height: 120px;
-  background: linear-gradient(#184E77, #52B69A);
+  background-color: #184E77;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
