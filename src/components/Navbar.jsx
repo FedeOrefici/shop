@@ -4,24 +4,31 @@ import { NavLink } from 'react-router-dom'
 
 const Container = styled.div`
   width: 100%;
-  border: 1px solid black;
+  height: 120px;
+  background: linear-gradient(#184E77, #52B69A);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 `
 const ContLink = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  width: 50%;
+  padding: 10px;
 `
 
 
 
 const Navbar = () => {
+  
   return (
     <Container>
       <ContLink>
-        <NavLink to='/products'>products</NavLink>
-        <NavLink to='/your coins'>your coins</NavLink>
-        <NavLink to='/trade'>trade</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/home'>home</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/yourCoins'>your coins</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/trade'>trade</NavLink>
       </ContLink>
     </Container>
   )
