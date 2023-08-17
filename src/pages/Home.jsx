@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ContextData } from '../context/InfoContext'
 
 const Home = () => {
+
+  const {data} = useContext(ContextData)
+  console.log(data);
+
   return (
-    <div>Home</div>
+    <div>
+      <button onClick={data}>click</button>
+    </div>
   )
 }
 
