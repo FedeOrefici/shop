@@ -6,7 +6,7 @@ const ContextDataProvider = ({children}) => {
 
 
     const [data, setData] = useState([])
-    const [favorites, setFAvorites] = useState()
+    const [favorites, setFavorites] = useState([])
 
 
     useEffect(() => {
@@ -33,12 +33,16 @@ const ContextDataProvider = ({children}) => {
     console.log(data, 'aca data');
     
 
-
     const toggleFavs = (coinId) => {
-      if(data?.find(item => item?.id === coinId)){
-        console.log(`existe papu ${coinId}`);
+        if(favorites.some(coin => coin.id === coinId)){
+            setFavorites(prevFavorites => prevFavorites.filter(item => item.id !== coinId))
+        } else {
+            const coinToAdd = data.find(coin => coin.id === coinId)
+            if(coinToAdd){
+                setFavorites(prevFavorites => [...prevFavorites, coinToAdd])
+            }
+        }
       }
-    }
 
     return(
         <ContextData.Provider value={{data, favorites, toggleFavs}}>
