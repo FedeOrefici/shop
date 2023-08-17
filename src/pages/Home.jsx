@@ -2,20 +2,6 @@ import React, { useContext } from 'react'
 import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
 
-const Container = styled.div`
-  width: 40%;
-  border-radius: 6px;
-  height: 200px;
-  padding: 10px;
-  margin: auto;
-  background: linear-gradient(to right, #184E77, #52B69A);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-`
-
 const ContainerCards = styled.div`
   display: block;
   column-count: 2;
@@ -25,7 +11,22 @@ const ContainerCards = styled.div`
   width: 70%;
   flex-direction: column;
   margin: auto;
-`
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-bottom: 100px;
+`;
+
+const Container = styled.div`
+  width: 500px;
+  border-radius: 6px;
+  height: 220px;
+  padding: 10px;
+  margin: auto;
+  background: linear-gradient(to right, #184E77, #52B69A);
+  color: white;
+  display: flex;
+`;
+
 
 
 const Home = () => {
