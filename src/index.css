@@ -1,3 +1,6 @@
 body {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    background-image: url('./assets/dylan-calluy-JpflvzEl5cg-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

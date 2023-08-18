@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 1px solid #184E77;
+  border-bottom: 1px solid white;
   width: 80%;
   margin: auto;
 `
@@ -31,12 +31,12 @@ const Navbar = () => {
     <Container>
       <ContLink>
         <ContLogo>
-          <h3 style={{color:'gray'}}>coin</h3>
-          <h3 style={{color:'#184E77',fontWeight:'bolder'}}>Shop</h3>
+          <h3 style={{color:'white'}}>coin</h3>
+          <h3 style={{color:'#BEFF06',fontWeight:'bolder'}}>Shop</h3>
         </ContLogo>
-        <NavLink style={{textDecoration:'none', color:'#184E77'}} to='/home'>HOME</NavLink>
-        <NavLink style={{textDecoration:'none', color:'#184E77'}} to='/yourCoins'>YOUR COINS</NavLink>
-        <NavLink style={{textDecoration:'none', color:'#184E77'}} to='/trade'>TRADE</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/home'>Home</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/yourCoins'>Your coins</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/trade'>Trade</NavLink>
       </ContLink>
     </Container>
   )
