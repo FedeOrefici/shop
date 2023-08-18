@@ -22,6 +22,10 @@ const Container = styled.div`
   margin-top: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  &:hover{
+    transform: translateX(20px);
+  }
 `;
 
 const ContText = styled.div`
