@@ -4,24 +4,24 @@ import { styled } from 'styled-components';
 
 const ContainerCards = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   margin-top: 50px;
+  padding-left: 180px;
+  padding-right: 180px;
 `;
 
 const Container = styled.div`
-  border-radius: 6px;
   width: 430px;
   height: 220px;
   padding: 10px;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
   background-color: #353535;
   color: white;
   margin-top: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: space-between;
+  cursor: pointer;
 `;
 
 const ContText = styled.div`
