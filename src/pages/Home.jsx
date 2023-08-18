@@ -12,39 +12,55 @@ const ContainerCards = styled.div`
 
 const Container = styled.div`
   border-radius: 6px;
+  width: 430px;
   height: 220px;
   padding: 10px;
   margin: auto;
-  background: linear-gradient(to left, #184E77, #52B69A);
+  background-color: #353535;
   color: white;
   margin-top: 10px;
-  width: 50%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const ContText = styled.div`
   display: flex;
-  width: 30%;
+  justify-content: center;
+  align-items: left;
+  width: 70%;
+  padding: 10px;
   flex-direction: column;
-  padding-left: 100px;
 `;
 
 const Paragraph = styled.p`
-  font-weight: bold;
-  font-size: 50px;
+  color: #BEFF06;
+  font-size: 40px;
 `;
 
 const Text = styled.p`
   position: relative;
-  bottom: 60px;
+  top: 50px;
 `;
 
 const Button = styled.button`
-  background-color: yellow;
+  background-color: #353535;
   border-radius: 6px;
   border: none;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  margin-top: 20px;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  &:hover {
+    background-color: #303030;
+    color: black;
+  }
 `;
 
 const Home = () => {
@@ -59,12 +75,13 @@ const Home = () => {
         data.map(coin => (
           <Container>
             <ContText>
-              <Paragraph>{coin.fullName}</Paragraph>
               <Text>Price: {coin.price}</Text>
-              <Button onClick={() => toggleFavs(coin.id)}>
-                <span class="material-symbols-outlined">star</span>
-              </Button>
+              <Paragraph>{coin.fullName}</Paragraph>
             </ContText>
+              <Button onClick={() => toggleFavs(coin.id)}>
+                <span style={{color:'#BEFF06'}} class="material-symbols-outlined">add_circle</span>
+                <p style={{color:'white'}}>ADD</p>
+              </Button>
           </Container>
         ))
       ) : (<p>loading....</p>)}
