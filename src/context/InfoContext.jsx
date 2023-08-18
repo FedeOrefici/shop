@@ -6,6 +6,7 @@ const ContextDataProvider = ({children}) => {
 
 
     const [data, setData] = useState([])
+    const [dataCoin, setDataCoin] = useState([])
     const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
@@ -18,9 +19,12 @@ const ContextDataProvider = ({children}) => {
                     id: Number(coin.CoinInfo.Id),
                     name: coin.CoinInfo.Name,
                     fullName: coin.CoinInfo.FullName,
-                    price: coin?.DISPLAY?.USD?.PRICE
+                    price: coin?.RAW?.USD?.PRICE,
+                    volume24h: coin?.RAW?.USD?.VOLUME24HOUR,
+                    circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY
                 }))
                 setData(dataNumberId)
+                setDataCoin(dataNumberId)
             } catch (err) {
                 console.log('error fetching data', err)
             }
@@ -29,7 +33,7 @@ const ContextDataProvider = ({children}) => {
     }, [])
 
 
-     
+     console.log(data);
 
     const toggleFavs = (coinId) => {
         if(favorites.some(coin => coin.id === coinId)){
@@ -43,10 +47,9 @@ const ContextDataProvider = ({children}) => {
       }
 
 
-      console.log(favorites);
 
     return(
-        <ContextData.Provider value={{data, setData, favorites, toggleFavs}}>
+        <ContextData.Provider value={{data, setData, favorites, toggleFavs, dataCoin}}>
             {children}
         </ContextData.Provider>
     )

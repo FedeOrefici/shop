@@ -71,7 +71,7 @@ const Button = styled.button`
 
 const Home = () => {
 
-  const {data, toggleFavs} = useContext(ContextData)
+  const {data, toggleFavs, dataCoin} = useContext(ContextData)
 
   
 

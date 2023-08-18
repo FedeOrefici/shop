@@ -4,7 +4,7 @@ import { ContextData } from '../context/InfoContext'
 const YourCoins = () => {
 
   const {favorites} = useContext(ContextData)
-  console.log(favorites, 'aca lo favorito papa!');
+  console.log(favorites, 'aca favs');
 
   return (
     <div>
