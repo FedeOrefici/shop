@@ -35,26 +35,18 @@ const Button = styled.button`
     }
 `;
 
-
 const SearchBar = () => {
 
-    const {data, setData} = useContext(ContextData)
-    const [isSearch, setIsSearch] = useState('')
-    console.log(data);
+    const {search, setSearch, setPages} = useContext(ContextData)
 
-    const handleSearch = () => {
-        const searchCoin = data.filter((coin) => coin.fullName.toLowerCase().includes(isSearch.toLowerCase()))
-        console.log(searchCoin, 'aca filter');
-        setData(searchCoin)
+    const handleSearchChange = (event) =>{
+        setSearch(event.target.value)
+        setPages(1)
     }
-
-    
-
 
   return (
     <Container>
-        <Input value={isSearch} onChange={(event) => setIsSearch(event.target.value)} type='text' placeholder='type here...' />
-        <Button onClick={handleSearch}>Search</Button>
+        <Input value={search} onChange={handleSearchChange} type='text' placeholder='type here...' />
     </Container>
   )
 }

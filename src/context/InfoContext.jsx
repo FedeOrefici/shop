@@ -7,18 +7,30 @@ const ContextDataProvider = ({children}) => {
 
     const [data, setData] = useState([])
     const [favorites, setFavorites] = useState([])
+    const [search, setSearch] = useState('')
+    const [pages, setPages] = useState(1)
+    const [perPage, setPerpage] = useState(4)
+
+    const numLast = pages * perPage
+    const numFirst = numLast - perPage
+    console.log(numFirst);
+    const currentData = data.slice(numFirst, numLast)
+    const max = Math.ceil(data.length / perPage)
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD')
+                const response = await fetch('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=40&tsym=USD')
                 const info = await response.json()
                 console.log(info);
                 const dataNumberId = info.Data.map(coin => ({
                     id: Number(coin.CoinInfo.Id),
                     name: coin.CoinInfo.Name,
                     fullName: coin.CoinInfo.FullName,
-                    price: coin?.DISPLAY?.USD?.PRICE
+                    price: coin?.RAW?.USD?.PRICE,
+                    volume24h: coin?.RAW?.USD?.VOLUME24HOUR,
+                    circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY
                 }))
                 setData(dataNumberId)
             } catch (err) {
@@ -27,9 +39,6 @@ const ContextDataProvider = ({children}) => {
         }
        fetchData()
     }, [])
-
-
-     
 
     const toggleFavs = (coinId) => {
         if(favorites.some(coin => coin.id === coinId)){
@@ -42,11 +51,13 @@ const ContextDataProvider = ({children}) => {
         }
       }
 
+      const filtered = currentData.filter(coin => coin.fullName.toLowerCase().includes(search.toLowerCase()))
 
-      console.log(favorites);
+
+
 
     return(
-        <ContextData.Provider value={{data, setData, favorites, toggleFavs}}>
+        <ContextData.Provider value={{filtered, search, setSearch, favorites, toggleFavs, currentData, setPages, pages, max}}>
             {children}
         </ContextData.Provider>
     )

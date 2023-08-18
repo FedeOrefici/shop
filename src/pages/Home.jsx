@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
 import SearchBar from '../components/SearchBar';
+import Pagination from '../components/Pagination';
 
 
 const ContainerCards = styled.div`
@@ -71,16 +72,18 @@ const Button = styled.button`
 
 const Home = () => {
 
-  const {data, toggleFavs} = useContext(ContextData)
+  const {toggleFavs, filtered} = useContext(ContextData)
 
   
 
   return (
     <>
     <SearchBar />
+    
     <ContainerCards>
-      {data ? (
-        data.map(coin => (
+   
+      {filtered ? (
+        filtered.map(coin => (
           <Container>
             <ContText>
               <Text>Price: {coin.price}</Text>
@@ -92,8 +95,10 @@ const Home = () => {
               </Button>
           </Container>
         ))
+
       ) : (<p>loading....</p>)}
     </ContainerCards>
+    <Pagination />
     </>
   )
 }
