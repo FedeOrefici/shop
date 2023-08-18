@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
+import SearchBar from '../components/SearchBar';
+
 
 const ContainerCards = styled.div`
   display: flex;
@@ -74,6 +76,8 @@ const Home = () => {
   
 
   return (
+    <>
+    <SearchBar />
     <ContainerCards>
       {data ? (
         data.map(coin => (
@@ -90,6 +94,7 @@ const Home = () => {
         ))
       ) : (<p>loading....</p>)}
     </ContainerCards>
+    </>
   )
 }
 

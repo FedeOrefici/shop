@@ -8,7 +8,6 @@ const ContextDataProvider = ({children}) => {
     const [data, setData] = useState([])
     const [favorites, setFavorites] = useState([])
 
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,8 +29,7 @@ const ContextDataProvider = ({children}) => {
     }, [])
 
 
-    console.log(data, 'aca data');
-    
+     
 
     const toggleFavs = (coinId) => {
         if(favorites.some(coin => coin.id === coinId)){
@@ -44,8 +42,11 @@ const ContextDataProvider = ({children}) => {
         }
       }
 
+
+      console.log(favorites);
+
     return(
-        <ContextData.Provider value={{data, favorites, toggleFavs}}>
+        <ContextData.Provider value={{data, setData, favorites, toggleFavs}}>
             {children}
         </ContextData.Provider>
     )
