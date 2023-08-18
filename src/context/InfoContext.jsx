@@ -8,6 +8,7 @@ const ContextDataProvider = ({children}) => {
     const [data, setData] = useState([])
     const [dataCoin, setDataCoin] = useState([])
     const [favorites, setFavorites] = useState([])
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +34,7 @@ const ContextDataProvider = ({children}) => {
     }, [])
 
 
-     console.log(data);
+    
 
     const toggleFavs = (coinId) => {
         if(favorites.some(coin => coin.id === coinId)){
@@ -46,10 +47,12 @@ const ContextDataProvider = ({children}) => {
         }
       }
 
+      const filtered = data.filter(coin => coin.fullName.toLowerCase().includes(search.toLowerCase()))
+
 
 
     return(
-        <ContextData.Provider value={{data, setData, favorites, toggleFavs, dataCoin}}>
+        <ContextData.Provider value={{filtered, search, setSearch, favorites, toggleFavs, dataCoin}}>
             {children}
         </ContextData.Provider>
     )

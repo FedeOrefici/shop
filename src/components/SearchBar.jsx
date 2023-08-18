@@ -37,28 +37,11 @@ const Button = styled.button`
 
 const SearchBar = () => {
 
-    const {data, setData} = useContext(ContextData)
-    const [isSearch, setIsSearch] = useState('')
-    
-    const filteredCoin = (terms) => {
-        let filteredSearch = data.filter(element => {
-            if(element.fullName.toLowerCase().includes(terms.toLowerCase())){
-                return element
-            }
-        })
-        setData(filteredSearch)
-    }
-
-    const handleSearch = (event) => {
-        setIsSearch(event.target.value)
-        filteredCoin(event.target.value);
-    }
-
-
+    const {search, setSearch} = useContext(ContextData)
 
   return (
     <Container>
-        <Input value={isSearch} onChange={handleSearch} type='text' placeholder='type here...' />
+        <Input value={search} onChange={(event) => setSearch(event.target.value)} type='text' placeholder='type here...' />
     </Container>
   )
 }

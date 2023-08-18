@@ -71,7 +71,7 @@ const Button = styled.button`
 
 const Home = () => {
 
-  const {data, toggleFavs, dataCoin} = useContext(ContextData)
+  const {data, toggleFavs, filtered} = useContext(ContextData)
 
   
 
@@ -79,8 +79,8 @@ const Home = () => {
     <>
     <SearchBar />
     <ContainerCards>
-      {data ? (
-        data.map(coin => (
+      {filtered ? (
+        filtered.map(coin => (
           <Container>
             <ContText>
               <Text>Price: {coin.price}</Text>
