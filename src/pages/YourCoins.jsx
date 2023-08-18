@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ContextData } from '../context/InfoContext'
 
 const YourCoins = () => {
+
+  const {favorites} = useContext(ContextData)
+  console.log(favorites, 'aca lo favorito papa!');
+
   return (
-    <div>YourCoins</div>
+    <div>
+      hola
+    </div>
   )
 }
 

@@ -36,7 +36,7 @@ const Navbar = () => {
         </ContLogo>
         <NavLink style={{textDecoration:'none', color:'white'}} to='/home'>Home</NavLink>
         <NavLink style={{textDecoration:'none', color:'white'}} to='/yourCoins'>Your coins</NavLink>
-        <NavLink style={{textDecoration:'none', color:'white'}} to='/trade'>Trade / Buy</NavLink>
+        <NavLink style={{textDecoration:'none', color:'white'}} to='/trade'>Trade</NavLink>
       </ContLink>
     </Container>
   )
