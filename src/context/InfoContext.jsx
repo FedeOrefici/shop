@@ -6,14 +6,22 @@ const ContextDataProvider = ({children}) => {
 
 
     const [data, setData] = useState([])
-    const [dataCoin, setDataCoin] = useState([])
     const [favorites, setFavorites] = useState([])
     const [search, setSearch] = useState('')
+    const [pages, setPages] = useState(1)
+    const [perPage, setPerpage] = useState(4)
+
+    const numLast = pages * perPage
+    const numFirst = numLast - perPage
+    console.log(numFirst);
+    const currentData = data.slice(numFirst, numLast)
+    const max = Math.ceil(data.length / perPage)
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD')
+                const response = await fetch('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=40&tsym=USD')
                 const info = await response.json()
                 console.log(info);
                 const dataNumberId = info.Data.map(coin => ({
@@ -25,16 +33,12 @@ const ContextDataProvider = ({children}) => {
                     circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY
                 }))
                 setData(dataNumberId)
-                setDataCoin(dataNumberId)
             } catch (err) {
                 console.log('error fetching data', err)
             }
         }
        fetchData()
     }, [])
-
-
-    
 
     const toggleFavs = (coinId) => {
         if(favorites.some(coin => coin.id === coinId)){
@@ -47,12 +51,13 @@ const ContextDataProvider = ({children}) => {
         }
       }
 
-      const filtered = data.filter(coin => coin.fullName.toLowerCase().includes(search.toLowerCase()))
+      const filtered = currentData.filter(coin => coin.fullName.toLowerCase().includes(search.toLowerCase()))
+
 
 
 
     return(
-        <ContextData.Provider value={{filtered, search, setSearch, favorites, toggleFavs, dataCoin}}>
+        <ContextData.Provider value={{filtered, search, setSearch, favorites, toggleFavs, currentData, setPages, pages, max}}>
             {children}
         </ContextData.Provider>
     )

@@ -37,11 +37,16 @@ const Button = styled.button`
 
 const SearchBar = () => {
 
-    const {search, setSearch} = useContext(ContextData)
+    const {search, setSearch, setPages} = useContext(ContextData)
+
+    const handleSearchChange = (event) =>{
+        setSearch(event.target.value)
+        setPages(1)
+    }
 
   return (
     <Container>
-        <Input value={search} onChange={(event) => setSearch(event.target.value)} type='text' placeholder='type here...' />
+        <Input value={search} onChange={handleSearchChange} type='text' placeholder='type here...' />
     </Container>
   )
 }
