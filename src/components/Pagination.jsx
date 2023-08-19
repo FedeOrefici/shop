@@ -3,20 +3,45 @@ import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
-    background-color: white;
     color: black;
     height: 40px;
-    font-size: 20px;
-    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 630px;
+    border-radius: 6px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 100px;
 `;
 
 const ContainerPages = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    margin-left: 200px;
+    margin-right: 20px;
+`;
+
+const ContNumbers = styled.div`
+    width: 350px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #353535;
+`;
+
+const Buttons = styled.button`
+    background-color: #353535;
+    color: #BEFF06;
+    border: none;
+    width: 48px;
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
 `;
 
 
@@ -35,12 +60,22 @@ const Pagination = () => {
         setPages(pages - 1)
     }
 
+
   return (
     <Container>
         <ContainerPages>
-            <button onClick={handleBack} disabled={pages === 1}>prev</button>
-                <p>{pages}</p>
-            <button onClick={handleNext} disabled={pages === max}>next</button>
+            <Buttons onClick={handleBack} disabled={pages === 1}>
+                <span class="material-symbols-outlined">skip_previous</span>
+            </Buttons>
+            <ContNumbers>
+                <p>Page</p>
+                <p style={{color:'#BEFF06'}}>{pages}</p>
+                <p>of</p>
+                <span>{max}</span>
+            </ContNumbers>
+            <Buttons onClick={handleNext} disabled={pages === max}>
+                <span class="material-symbols-outlined">skip_next</span>
+            </Buttons>
         </ContainerPages>
     </Container>
   )
