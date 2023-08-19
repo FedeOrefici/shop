@@ -31,18 +31,22 @@ const ContainerText = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
+  bottom: 10px;
 `
 
 const Title = styled.p`
-  font-weight: 100;
+  font-weight: 600;
 `;
 
 const ContainerAll = styled.div`
-  border: 1px solid red;
   width: 30%;
 `;  
 
-
+const Price = styled.p`
+  position: relative;
+  bottom: 5px;
+`;
 
 
 const YourCoins = () => {
@@ -55,7 +59,7 @@ const YourCoins = () => {
       {favorites.map(fav => (
         <ContainerCard key={fav.id}>
           <ContainerAll>
-            <p>{fav.price}</p>
+            <Price>{fav.price}</Price>
             <h1 style={{color:'#BEFF06'}}>{fav.fullName}</h1>
             <ContainerText>
               <Title>Volume 24/h:</Title>
