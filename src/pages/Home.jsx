@@ -1,10 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
-import favs from '../assets/nof.png'
-import noFavs from '../assets/yesf.png'
 
 
 const ContainerCards = styled.div`
@@ -13,7 +11,7 @@ const ContainerCards = styled.div`
   margin-top: 50px;
   padding-left: 180px;
   padding-right: 180px;
-  border: 1px solid yellow;
+  min-height: 900px;
 `;
 
 const Container = styled.div`
