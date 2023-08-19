@@ -8,6 +8,15 @@ const Container = styled.div`
     height: 40px;
     font-size: 20px;
     font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const ContainerPages = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 
@@ -28,11 +37,11 @@ const Pagination = () => {
 
   return (
     <Container>
-        <div>
+        <ContainerPages>
             <button onClick={handleBack} disabled={pages === 1}>prev</button>
                 <p>{pages}</p>
             <button onClick={handleNext} disabled={pages === max}>next</button>
-        </div>
+        </ContainerPages>
     </Container>
   )
 }

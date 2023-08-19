@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
+import favs from '../assets/nof.png'
+import noFavs from '../assets/yesf.png'
 
 
 const ContainerCards = styled.div`
@@ -11,6 +13,7 @@ const ContainerCards = styled.div`
   margin-top: 50px;
   padding-left: 180px;
   padding-right: 180px;
+  border: 1px solid yellow;
 `;
 
 const Container = styled.div`
@@ -51,29 +54,28 @@ const Text = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: #353535;
   border-radius: 6px;
   border: none;
   width: 80px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-right: 20px;
   margin-top: 20px;
-  gap: 10px;
   cursor: pointer;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  &:hover {
-    background-color: #303030;
-    color: black;
-  }
+  background-color: #BEFF06;
 `;
+
+const Favs = styled.img`
+  width: 20px;
+`;
+
+
 
 const Home = () => {
 
-  const {toggleFavs, filtered} = useContext(ContextData)
-
+  const {toggleFavs, filtered, isFav} = useContext(ContextData)
+  
+  console.log(isFav);
   
 
   return (
@@ -89,10 +91,15 @@ const Home = () => {
               <Text>Price: {coin.price}</Text>
               <Paragraph>{coin.fullName}</Paragraph>
             </ContText>
-              <Button onClick={() => toggleFavs(coin.id)}>
-                <span style={{color:'#BEFF06'}} class="material-symbols-outlined">add_circle</span>
-                <p style={{color:'white'}}>ADD</p>
-              </Button>
+
+            { isFav
+              ? <Button onClick={() => toggleFavs(coin.id)}>
+                  ❤️  
+                </Button>
+              : <Button onClick={() => toggleFavs(coin.id)}>
+                  🤍  
+                </Button>  
+            }         
           </Container>
         ))
 
