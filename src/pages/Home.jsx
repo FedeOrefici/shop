@@ -11,6 +11,7 @@ const ContainerCards = styled.div`
   margin-top: 50px;
   padding-left: 180px;
   padding-right: 180px;
+  min-height: 900px;
 `;
 
 const Container = styled.div`
