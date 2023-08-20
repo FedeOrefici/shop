@@ -24,7 +24,6 @@ const ContainerCard = styled.div`
   align-items: center;
   justify-content: space-around;
   line-height: 1px;
-  border: 1px solid yellow;
 `;
 
 const ContainerText = styled.div`

@@ -8,7 +8,6 @@ const ContextDataProvider = ({children}) => {
     const [data, setData] = useState([])
     const [favorites, setFavorites] = useState([])
     const [search, setSearch] = useState('')
-    const [isFav, setIsFav] = useState(false)
     const [pages, setPages] = useState(1)
     const [perPage, setPerpage] = useState(4)
 
@@ -31,7 +30,8 @@ const ContextDataProvider = ({children}) => {
                     fullName: coin.CoinInfo.FullName,
                     price: coin?.RAW?.USD?.PRICE,
                     volume24h: coin?.RAW?.USD?.VOLUME24HOUR,
-                    circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY
+                    circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY,
+                    isFavorite: false,
                 }))
                 setData(dataNumberId)
             } catch (err) {
@@ -42,11 +42,11 @@ const ContextDataProvider = ({children}) => {
     }, [])
 
     const toggleFavs = (coinId) => {
-        setIsFav(false)
+ 
         if(favorites.some(coin => coin.id === coinId)){
             setFavorites(prevFavorites => prevFavorites.filter(item => item.id !== coinId))
         } else {
-            setIsFav(true)
+          
             const coinToAdd = data.find(coin => coin.id === coinId)
             if(coinToAdd){
                 setFavorites(prevFavorites => [...prevFavorites, coinToAdd])
@@ -70,7 +70,7 @@ const ContextDataProvider = ({children}) => {
             setPages, 
             pages, 
             max, 
-            isFav}}>
+            }}>
             {children}
         </ContextData.Provider>
     )
