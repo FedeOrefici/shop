@@ -89,15 +89,9 @@ const Home = () => {
               <Text>Price: {coin.price}</Text>
               <Paragraph>{coin.fullName}</Paragraph>
             </ContText>
-
-            { isFav
-              ? <Button onClick={() => toggleFavs(coin.id)}>
-                  ❤️  
-                </Button>
-              : <Button onClick={() => toggleFavs(coin.id)}>
-                  🤍  
-                </Button>  
-            }         
+            <Button onClick={() => toggleFavs(coin.id)}>
+              {/* put the logic for the favs */}
+            </Button>
           </Container>
         ))
 
