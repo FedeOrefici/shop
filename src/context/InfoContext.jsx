@@ -45,8 +45,7 @@ const ContextDataProvider = ({children}) => {
  
         if(favorites.some(coin => coin.id === coinId)){
             setFavorites(prevFavorites => prevFavorites.filter(item => item.id !== coinId))
-        } else {
-          
+        } else {          
             const coinToAdd = data.find(coin => coin.id === coinId)
             if(coinToAdd){
                 setFavorites(prevFavorites => [...prevFavorites, coinToAdd])
