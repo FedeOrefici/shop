@@ -10,10 +10,10 @@ const ContextDataProvider = ({children}) => {
     const [search, setSearch] = useState('')
     const [pages, setPages] = useState(1)
     const [perPage, setPerpage] = useState(4)
+    const [isFav, setIsFav] = useState(false)
 
     const numLast = pages * perPage
     const numFirst = numLast - perPage
-    console.log(numFirst);
     const currentData = data.slice(numFirst, numLast)
     const max = Math.ceil(data.length / perPage)
 
@@ -68,7 +68,8 @@ const ContextDataProvider = ({children}) => {
             currentData, 
             setPages, 
             pages, 
-            max, 
+            max,
+            isFav
             }}>
             {children}
         </ContextData.Provider>

@@ -3,7 +3,7 @@ import { ContextData } from '../context/InfoContext'
 import { styled } from 'styled-components';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
-
+import Modal from '../components/Modal';
 
 const ContainerCards = styled.div`
   display: flex;
@@ -73,7 +73,6 @@ const Home = () => {
 
   const {toggleFavs, filtered, isFav} = useContext(ContextData)
   
-  console.log(isFav);
   
 
   return (
@@ -89,9 +88,13 @@ const Home = () => {
               <Text>Price: {coin.price}</Text>
               <Paragraph>{coin.fullName}</Paragraph>
             </ContText>
-            <Button onClick={() => toggleFavs(coin.id)}>
-              {/* put the logic for the favs */}
-            </Button>
+            { (coin.id)
+              ? <Button onClick={() => toggleFavs(coin.id)}>
+                  <span class="material-symbols-outlined">favorite</span>
+                </Button>
+              : null
+            }
+            {isFav ? <Modal /> : null}
           </Container>
         ))
 
