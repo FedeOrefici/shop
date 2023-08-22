@@ -12,10 +12,11 @@ const ContainerCards = styled.div`
   padding-left: 180px;
   padding-right: 180px;
   min-height: 900px;
+  align-items: center;
 `;
 
 const Container = styled.div`
-  width: 430px;
+  width: 630px;
   height: 220px;
   padding: 10px;
   display: flex;
@@ -101,6 +102,7 @@ const Home = () => {
       ) : (<p>loading....</p>)}
     </ContainerCards>
     <Pagination />
+
     </>
   )
 }

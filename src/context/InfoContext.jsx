@@ -10,7 +10,6 @@ const ContextDataProvider = ({children}) => {
     const [search, setSearch] = useState('')
     const [pages, setPages] = useState(1)
     const [perPage, setPerpage] = useState(4)
-    const [isFav, setIsFav] = useState(false)
 
     const numLast = pages * perPage
     const numFirst = numLast - perPage
@@ -31,7 +30,6 @@ const ContextDataProvider = ({children}) => {
                     price: coin?.RAW?.USD?.PRICE,
                     volume24h: coin?.RAW?.USD?.VOLUME24HOUR,
                     circulationSupply: coin?.RAW?.USD?.CIRCULATINGSUPPLY,
-                    isFavorite: false,
                 }))
                 setData(dataNumberId)
             } catch (err) {
@@ -69,7 +67,6 @@ const ContextDataProvider = ({children}) => {
             setPages, 
             pages, 
             max,
-            isFav
             }}>
             {children}
         </ContextData.Provider>

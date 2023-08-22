@@ -8,11 +8,11 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 630px;
-    border-radius: 6px;
+    width: 830px;
     color: white;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 100px;
+    width: 100%;
 `;
 
 const ContainerPages = styled.div`
@@ -20,8 +20,6 @@ const ContainerPages = styled.div`
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-left: 200px;
-    margin-right: 20px;
 `;
 
 const ContNumbers = styled.div`
